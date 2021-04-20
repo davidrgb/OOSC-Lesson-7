@@ -29,6 +29,14 @@ public abstract class GameElement {
         this(x, y, Color.white, false, width, height);
     }
 
+    public boolean collideWith(GameElement another) {
+        if (another.x > x + width || x > another.x + another.width
+            || y + height < another.y || y > another.y + another.height)
+            return false;
+        else
+            return true;
+    }
+
     public abstract void render(Graphics2D g2);
     public abstract void animate();
 
